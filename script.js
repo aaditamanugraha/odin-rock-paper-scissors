@@ -1,44 +1,39 @@
 function getComputerChoice() {
   const choiceOptions = ["ROCK", "PAPER", "SCISSORS"];
-  let randomNumber = Math.floor(Math.random() * 3);
+  let randomNumber = Math.floor(Math.random() * choiceOptions.length);
   let randomChoice = choiceOptions[randomNumber];
 
   return randomChoice;
 }
 
-function playRound(player) {
-  let playerSelection = player.toUpperCase();
-  let computerSelection = getComputerChoice();
-
-  if (playerSelection === "ROCK" && computerSelection === "SCISSORS") {
-    alert("You win! " + playerSelection + " beats " + computerSelection);
-  } else if (playerSelection === "ROCK" && computerSelection === "PAPER") {
-    alert("You lose! " + computerSelection + " beats " + playerSelection);
-  } else if (playerSelection === "ROCK" && computerSelection === "ROCK") {
-    alert("Draw! " + computerSelection + " can't beats " + playerSelection);
-  } else if (playerSelection === "PAPER" && computerSelection === "ROCK") {
-    alert("You win! " + playerSelection + " beats " + computerSelection);
-  } else if (playerSelection === "PAPER" && computerSelection === "SCISSORS") {
-    alert("You lose! " + computerSelection + " beats " + playerSelection);
-  } else if (playerSelection === "PAPER" && computerSelection === "PAPER") {
-    alert("Draw! " + computerSelection + " can't beats " + playerSelection);
-  } else if (playerSelection === "SCISSORS" && computerSelection === "PAPER") {
-    alert("You win! " + playerSelection + " beats " + computerSelection);
-  } else if (playerSelection === "SCISSORS" && computerSelection === "ROCK") {
-    alert("You lose! " + computerSelection + " beats " + playerSelection);
-  } else if (
-    playerSelection === "SCISSORS" &&
-    computerSelection === "SCISSORS"
-  ) {
-    alert("Draw! " + computerSelection + " can't beats " + playerSelection);
-  }
-
-  return;
-}
+let playerScore = 0;
+let computerScore = 0;
 
 function game() {
-  let userInput = prompt("Ketik pilihanmu 'Rock', 'Paper', atau 'Scissors'");
-  let result = playRound(userInput);
+  while (playerScore < 5 && computerScore < 5) {
+    const playerSelection = prompt(
+      "Choose between 'Rock', 'Paper', or 'Scissors'."
+    );
+    const computerSelection = getComputerChoice();
 
-  return result;
+    console.log(playRound(playerSelection, computerSelection));
+    console.log(playerScore);
+    console.log(computerScore);
+  }
+}
+
+function playRound(playerSelection, computerSelection) {
+  let upperCasePlayer = playerSelection.toUpperCase();
+
+  if (upperCasePlayer === computerSelection) {
+    return "Draw! Your choise and the computer choice are same.";
+  } else if (upperCasePlayer === "ROCK" && computerSelection === "SCISSORS") {
+    return `You win! ${upperCasePlayer} beats ${computerSelection}.`;
+  } else if (upperCasePlayer === "PAPER" && computerSelection === "ROCK") {
+    return `You win! ${upperCasePlayer} beats ${computerSelection}.`;
+  } else if (upperCasePlayer === "SCISSORS" && computerSelection === "PAPER") {
+    return `You win! ${upperCasePlayer} beats ${computerSelection}.`;
+  } else {
+    return `You lose! ${computerSelection} beats ${upperCasePlayer}.`;
+  }
 }
