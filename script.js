@@ -2,29 +2,27 @@ let playerScore = 0;
 let computerScore = 0;
 
 function getComputerChoices() {
-  const choices = ["ROCK", "PAPER", "SCISSORS"];
+  const choices = ["rock", "paper", "scissors"];
   const randomChoices = Math.floor(Math.random() * 3);
 
   return choices[randomChoices];
 }
 
-function playerSelection() {
-  let playerChoices = prompt(
-    "Masukan pilihan anda! Rock, Paper, atau Scissors."
-  );
-  let simplifyPlayerChoices = playerChoices.toLowerCase();
+function getPlayerChoices() {
+  let playerInput = prompt("Masukan pilihan anda! Rock, Paper, atau Scissors.");
+  let simplifyPlayerInput = playerInput.toLowerCase();
 
-  if (simplifyPlayerChoices === "rock") {
-    alert("Kamu memilih " + simplifyPlayerChoices);
-  } else if (simplifyPlayerChoices === "paper") {
-    alert("Kamu memilih " + simplifyPlayerChoices);
-  } else if (simplifyPlayerChoices === "scissors") {
-    alert("Kamu memilih " + simplifyPlayerChoices);
+  if (
+    simplifyPlayerInput === "rock" ||
+    simplifyPlayerInput === "paper" ||
+    simplifyPlayerInput === "scissors"
+  ) {
+    console.log("OK 200");
   } else {
     alert(
       "Pilihan anda bukanlah sebuah pilihan! Silahkan isikan sesuai dengan instruksi."
     );
   }
 
-  return simplifyPlayerChoices;
+  return simplifyPlayerInput;
 }
