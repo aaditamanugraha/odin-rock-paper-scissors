@@ -13,16 +13,22 @@ function getPlayerChoices() {
   let simplifyPlayerInput = playerInput.toLowerCase();
 
   if (
-    simplifyPlayerInput === "rock" ||
-    simplifyPlayerInput === "paper" ||
-    simplifyPlayerInput === "scissors"
+    simplifyPlayerInput !== "rock" &&
+    simplifyPlayerInput !== "paper" &&
+    simplifyPlayerInput !== "scissors"
   ) {
-    console.log("OK 200");
-  } else {
     alert(
       "Pilihan anda bukanlah sebuah pilihan! Silahkan isikan sesuai dengan instruksi."
     );
   }
 
   return simplifyPlayerInput;
+}
+
+function play(playerSelection, computerSelection) {
+  playerSelection = getPlayerChoices();
+  computerSelection = getComputerChoices();
+
+  console.log("Player memilih " + playerSelection);
+  console.log("Computer memilih " + computerSelection);
 }
