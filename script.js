@@ -7,3 +7,11 @@ function getComputerChoices() {
 
   return choices[randomChoices];
 }
+
+function playerSelection() {
+  let playerChoices = prompt(
+    "Masukan pilihan anda! Rock, Paper, atau Scissors."
+  );
+
+  console.log(playerChoices);
+}
