@@ -29,6 +29,38 @@ function play(playerSelection, computerSelection) {
   playerSelection = getPlayerChoices();
   computerSelection = getComputerChoices();
 
+  if (playerSelection === computerSelection) {
+    alert("Draw! Silahkan mulai ulang");
+  } else if (playerSelection === "rock" && computerSelection === "scissors") {
+    alert(
+      "You Win! Player choose " +
+        playerSelection +
+        " and Computer choose " +
+        computerSelection
+    );
+  } else if (playerSelection === "scissors" && computerSelection === "paper") {
+    alert(
+      "You Win! Player choose " +
+        playerSelection +
+        " and Computer choose " +
+        computerSelection
+    );
+  } else if (playerSelection === "paper" && computerSelection === "rock") {
+    alert(
+      "You Win! Player choose " +
+        playerSelection +
+        " and Computer choose " +
+        computerSelection
+    );
+  } else {
+    alert(
+      "You Lose! Player choose " +
+        playerSelection +
+        " and Computer choose " +
+        computerSelection
+    );
+  }
+
   console.log("Player memilih " + playerSelection);
   console.log("Computer memilih " + computerSelection);
 }
