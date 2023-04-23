@@ -14,8 +14,6 @@ function playerSelection() {
   );
   let simplifyPlayerChoices = playerChoices.toLowerCase();
 
-  console.log(simplifyPlayerChoices);
-
   if (simplifyPlayerChoices === "rock") {
     alert("Kamu memilih " + simplifyPlayerChoices);
   } else if (simplifyPlayerChoices === "paper") {
@@ -27,4 +25,6 @@ function playerSelection() {
       "Pilihan anda bukanlah sebuah pilihan! Silahkan isikan sesuai dengan instruksi."
     );
   }
+
+  return simplifyPlayerChoices;
 }
