@@ -46,6 +46,10 @@ function play(playerSelection) {
   alert(result);
 
   updateScore(result);
+
+  if (isGameOver()) {
+    endGame();
+  }
 }
 
 function updateScore(result) {
@@ -60,6 +64,26 @@ function updateScore(result) {
 
   playerScoreElement.innerText = playerScore;
   computerScoreElement.innerText = computerScore;
+}
 
-  console.log(playerScore, computerScore);
+function isGameOver() {
+  return playerScore === 5 || computerScore === 5;
+}
+
+function endGame() {
+  const message =
+    playerScore > computerScore
+      ? "Conrats! You win the game."
+      : "Sorry, you lose the game.";
+
+  alert(message);
+
+  playerScore = 0;
+  computerScore = 0;
+
+  const playerScoreElement = document.getElementById("player-score");
+  const computerScoreElement = document.getElementById("computer-score");
+
+  playerScoreElement.innerText = playerScore;
+  computerScoreElement.innerText = computerScore;
 }
