@@ -64,3 +64,23 @@ function play(playerSelection, computerSelection) {
   console.log("Player memilih " + playerSelection);
   console.log("Computer memilih " + computerSelection);
 }
+
+const rockBtn = document.getElementById("btn-rock");
+const paperBtn = document.getElementById("btn-paper");
+const scissorsBtn = document.getElementById("btn-scissors");
+
+rockBtn.addEventListener("click", () => {
+  console.log(rockBtn.innerText);
+
+  return rockBtn.innerText;
+});
+paperBtn.addEventListener("click", () => {
+  console.log(paperBtn.innerText);
+
+  return paperBtn.innerText;
+});
+scissorsBtn.addEventListener("click", () => {
+  console.log(scissorsBtn.innerText);
+
+  return scissorsBtn.innerText;
+});
