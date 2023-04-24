@@ -25,27 +25,14 @@ function getPlayerChoices() {
   return simplifyPlayerInput;
 }
 
-function play(playerSelection, computerSelection) {
-  playerSelection = getPlayerChoices();
-  computerSelection = getComputerChoices();
-
+function playRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
     alert("Draw! Silahkan mulai ulang");
-  } else if (playerSelection === "rock" && computerSelection === "scissors") {
-    alert(
-      "You Win! Player choose " +
-        playerSelection +
-        " and Computer choose " +
-        computerSelection
-    );
-  } else if (playerSelection === "scissors" && computerSelection === "paper") {
-    alert(
-      "You Win! Player choose " +
-        playerSelection +
-        " and Computer choose " +
-        computerSelection
-    );
-  } else if (playerSelection === "paper" && computerSelection === "rock") {
+  } else if (
+    (playerSelection === "rock" && computerSelection === "scissors") ||
+    (playerSelection === "scissors" && computerSelection === "paper") ||
+    (playerSelection === "paper" && computerSelection === "rock")
+  ) {
     alert(
       "You Win! Player choose " +
         playerSelection +
@@ -60,27 +47,16 @@ function play(playerSelection, computerSelection) {
         computerSelection
     );
   }
-
-  console.log("Player memilih " + playerSelection);
-  console.log("Computer memilih " + computerSelection);
 }
 
-const rockBtn = document.getElementById("btn-rock");
-const paperBtn = document.getElementById("btn-paper");
-const scissorsBtn = document.getElementById("btn-scissors");
+function play(playerSelection) {
+  computerSelection = getComputerChoices();
+  playRound(playerSelection, computerSelection);
 
-rockBtn.addEventListener("click", () => {
-  console.log(rockBtn.innerText);
-
-  return rockBtn.innerText;
-});
-paperBtn.addEventListener("click", () => {
-  console.log(paperBtn.innerText);
-
-  return paperBtn.innerText;
-});
-scissorsBtn.addEventListener("click", () => {
-  console.log(scissorsBtn.innerText);
-
-  return scissorsBtn.innerText;
-});
+  console.log(
+    "Player choose " +
+      playerSelection +
+      " and Computer choose " +
+      computerSelection
+  );
+}
